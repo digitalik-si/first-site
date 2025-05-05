@@ -1,88 +1,96 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digitalik</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #1f2937;
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #1f2937;
-        }
-        .info {
-            margin-bottom: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #555;
-            font-size: 0.9em;
-        }
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digitalik d.o.o.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7fdfc;
+      color: #222;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      background-color: #cfe9f1;
+    }
+    header img {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      margin: 0;
+      color: #004d80;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    main p {
+      line-height: 1.8;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .contact-button {
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #004d80;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .contact-button:hover {
+      background-color: #00385c;
+      transform: scale(1.05);
+    }
+    footer {
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.95rem;
+      background-color: #cfe9f1;
+      margin-top: 50px;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      main p {
+        font-size: 1.05rem;
+      }
+      .contact-button {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Digitalik, posredništvo pri prodaji, d.o.o.</h1>
-        <p>Vaš zaupanja vreden partner</p>
-    </header>
 
-    <main>
-        <section class="info">
-            <h2>O podjetju</h2>
-            <p>Smo sodobno podjetje, specializirano za posredništvo pri prodaji, računovodske, knjigovodske, revizijske dejavnosti ter davčno svetovanje. Pomagamo tudi pri vodenju IT storitev infrastrukture in kibernetske varnosti. Naš cilj je strankam omogočiti varno in učinkovito poslovanje.</p>
-        </section>
+<header>
+  <img src="logo.png" alt="Digitalik d.o.o. logo">
+  <h1>DIGITALIK d.o.o.</h1>
+</header>
 
-        <section class="info">
-            <h2>Podatki podjetja</h2>
-            <ul>
-                <li><strong>Naziv:</strong> Digitalik d.o.o.</li>
-                <li><strong>Naslov:</strong> Rakovniška ulica 6, 1292 Ig</li>
-                <li><strong>Matična številka:</strong> 9833501000</li>
-                <li><strong>Davčna številka:</strong> SI35088052</li>
-                <li><strong>E-pošta:</strong> <a href="mailto:info@maigitalik.si">info@digitalik.si</a></li>
-            </ul>
-        </section>
+<main>
+  <p>Smo sodobno podjetje, specializirano za posredništvo pri prodaji opreme s področja IT infrastrukture in kibernetske varnosti. 
+Nudimo tudi računovodske storitve ter svetovanje, saj želimo našim strankam zagotoviti varno, učinkovito in brezskrbno poslovanje.</p>
 
-        <section class="info">
-            <h2>Naše storitve</h2>
-            <ul>
-                <li>Posredništvo pri prodaji</li>
-                <li>Računovodske storitve</li>
-                <li>Knjigovodske storitve</li>
-                <li>Svetovanje in projektno vodenje</li>
-                <li>IT infrastruktura in kibernetska varnost</li>
-            </ul>
-        </section>
-    </main>
+  <a href="mailto:info@digitalik.si" class="contact-button">Kontaktiraj nas</a>
+</main>
 
-    <footer>
-        &copy; 2025 Digitalik d.o.o.
-    </footer>
+<footer>
+  DIGITALIK d.o.o. | Rakovniška ulica 6, 1292 Ig<br>
+  Matična št.: 9833501 | Davčna št.: SI35088052
+</footer>
+
 </body>
 </html>
