@@ -14,18 +14,50 @@
     }
     header {
       text-align: center;
-      padding: 60px 20px 30px;
+      padding: 20px;
       background-color: #cfe9f1;
+      position: relative;
     }
     header img {
-      max-width: 120px;
-      margin-bottom: 20px;
+      max-width: 100px;
+      margin-bottom: 10px;
     }
     header h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 2.8rem;
+      font-size: 2.2rem;
       margin: 0;
       color: #004d80;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #004d80;
+      padding: 12px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+      cursor: pointer;
+    }
+    nav a:hover {
+      opacity: 0.7;
+    }
+    .lang-switch {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+    .lang-switch button {
+      background: none;
+      border: none;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-left: 10px;
+      color: #004d80;
+      font-weight: bold;
     }
     main {
       padding: 30px 20px;
@@ -33,10 +65,30 @@
       margin: 0 auto;
       text-align: center;
     }
-    main p {
+    main section {
+      display: none;
+      margin-bottom: 50px;
+    }
+    main section.active {
+      display: block;
+    }
+    main p, main li {
       line-height: 1.8;
       font-size: 1.2rem;
-      margin-bottom: 30px;
+    }
+    ul {
+      list-style-type: disc;
+      text-align: left;
+      display: inline-block;
+      margin: 20px auto;
+      padding-left: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 1rem;
+      background-color: #cfe9f1;
+      margin-top: 40px;
     }
     .contact-button {
       display: inline-block;
@@ -46,29 +98,25 @@
       text-decoration: none;
       border-radius: 8px;
       font-size: 1.1rem;
+      margin-top: 15px;
       transition: background-color 0.3s, transform 0.2s;
     }
     .contact-button:hover {
       background-color: #00385c;
       transform: scale(1.05);
     }
-    footer {
-      text-align: center;
-      padding: 25px 20px;
-      font-size: 0.95rem;
-      background-color: #cfe9f1;
-      margin-top: 50px;
-    }
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
-      main p {
+      nav {
+        flex-direction: column;
+      }
+      nav a {
+        margin: 8px 0;
+      }
+      main p, main li {
         font-size: 1.05rem;
-      }
-      .contact-button {
-        font-size: 1rem;
-        padding: 12px 24px;
       }
     }
   </style>
@@ -78,19 +126,151 @@
 <header>
   <img src="logo.png" alt="Digitalik d.o.o. logo">
   <h1>DIGITALIK d.o.o.</h1>
+  <div class="lang-switch">
+    <button onclick="setLanguage('sl')">SL</button> | 
+    <button onclick="setLanguage('en')">EN</button>
+  </div>
 </header>
 
-<main>
-  <p>Smo sodobno podjetje, specializirano za posredništvo pri prodaji opreme s področja IT infrastrukture in kibernetske varnosti. 
-Nudimo tudi računovodske storitve ter svetovanje, saj želimo našim strankam zagotoviti varno, učinkovito in brezskrbno poslovanje.</p>
+<nav>
+  <a onclick="showSection('home')" data-sl="Domov" data-en="Home">Domov</a>
+  <a onclick="showSection('services')" data-sl="Storitve" data-en="Services">Storitve</a>
+  <a onclick="showSection('cyber')" data-sl="Kibernetska varnost" data-en="Cybersecurity">Kibernetska varnost</a>
+</nav>
 
-  <a href="mailto:info@digitalik.si" class="contact-button">Kontaktiraj nas</a>
+<main>
+  <section id="home" class="active">
+    <p id="intro-text">
+      Smo sodobno podjetje, specializirano za posredništvo pri prodaji opreme s področja IT infrastrukture in kibernetske varnosti. 
+      Nudimo tudi računovodske storitve ter svetovanje, saj želimo našim strankam zagotoviti varno, učinkovito in brezskrbno poslovanje.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2 id="services-title">Storitve</h2>
+    <ul id="services-list">
+      <li>Prodaja IT opreme</li>
+      <li>Načrtovanje in vzdrževanje infrastrukture</li>
+      <li>Kibernetska varnost</li>
+      <li>Računovodske storitve</li>
+      <li>Poslovno svetovanje</li>
+    </ul>
+  </section>
+
+  <section id="cyber">
+    <h2 id="cyber-title">Kibernetska varnost</h2>
+    <p id="cyber-text">
+      Naše podjetje ponuja napredne rešitve kibernetske varnosti, vključno z zaščito omrežij, 
+      varovanjem podatkov in implementacijo najboljših praks za varno poslovanje. 
+      Strankam pomagamo zmanjšati tveganja in zagotoviti skladnost z varnostnimi standardi.
+    </p>
+    <h3 id="vendors-title">Naši dobavitelji</h3>
+    <ul id="vendors-list">
+      <li>Trend Micro</li>
+      <li>VMware</li>
+      <li>Microsoft</li>
+      <li>IBM</li>
+      <li>NetApp</li>
+    </ul>
+  </section>
 </main>
 
 <footer>
-  DIGITALIK d.o.o. | Rakovniška ulica 6, 1292 Ig<br>
-  Matična št.: 9833501 | Davčna št.: SI35088052
+  <div id="company-info">
+    DIGITALIK d.o.o. | Rakovniška ulica 6, 1292 Ig<br>
+    Matična št.: 9833501 | Davčna št.: SI35088052
+  </div>
+  <a href="mailto:info@digitalik.si" id="contact-button" class="contact-button">Kontaktirajte nas</a>
 </footer>
+
+<script>
+  const translations = {
+    sl: {
+      home: "Smo sodobno podjetje, specializirano za posredništvo pri prodaji opreme s področja IT infrastrukture in kibernetske varnosti. Nudimo tudi računovodske storitve ter svetovanje, saj želimo našim strankam zagotoviti varno, učinkovito in brezskrbno poslovanje.",
+      servicesTitle: "Storitve",
+      servicesList: [
+        "Prodaja IT opreme",
+        "Načrtovanje in vzdrževanje infrastrukture",
+        "Kibernetska varnost",
+        "Računovodske storitve",
+        "Poslovno svetovanje"
+      ],
+      cyberTitle: "Kibernetska varnost",
+      cyberText: "Naše podjetje ponuja napredne rešitve kibernetske varnosti, vključno z zaščito omrežij, varovanjem podatkov in implementacijo najboljših praks za varno poslovanje. Strankam pomagamo zmanjšati tveganja in zagotoviti skladnost z varnostnimi standardi.",
+      vendorsTitle: "Naši dobavitelji",
+      vendorsList: ["Trend Micro", "VMware", "Microsoft", "IBM", "NetApp"],
+      company: "DIGITALIK d.o.o. | Rakovniška ulica 6, 1292 Ig<br>Matična št.: 9833501 | Davčna št.: SI35088052",
+      button: "Kontaktirajte nas"
+    },
+    en: {
+      home: "We are a modern company specializing in IT infrastructure and cybersecurity equipment brokerage. We also provide accounting services and consulting, ensuring our clients safe, efficient, and worry-free business operations.",
+      servicesTitle: "Services",
+      servicesList: [
+        "IT equipment sales",
+        "Infrastructure planning and maintenance",
+        "Cybersecurity",
+        "Accounting services",
+        "Business consulting"
+      ],
+      cyberTitle: "Cybersecurity",
+      cyberText: "Our company offers advanced cybersecurity solutions, including network protection, data security, and the implementation of best practices for safe business operations. We help clients reduce risks and ensure compliance with security standards.",
+      vendorsTitle: "Our Vendors",
+      vendorsList: ["Trend Micro", "VMware", "Microsoft", "IBM", "NetApp"],
+      company: "DIGITALIK d.o.o. | Rakovniška ulica 6, 1292 Ig<br>Company ID: 9833501 | VAT ID: SI35088052",
+      button: "Contact us"
+    }
+  };
+
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.getElementById("intro-text").innerHTML = translations[lang].home;
+    document.getElementById("services-title").textContent = translations[lang].servicesTitle;
+    document.getElementById("cyber-title").textContent = translations[lang].cyberTitle;
+    document.getElementById("cyber-text").textContent = translations[lang].cyberText;
+    document.getElementById("vendors-title").textContent = translations[lang].vendorsTitle;
+    document.getElementById("company-info").innerHTML = translations[lang].company;
+    document.getElementById("contact-button").textContent = translations[lang].button;
+
+    // seznam storitev
+    const list = document.getElementById("services-list");
+    list.innerHTML = "";
+    translations[lang].servicesList.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    });
+
+    // seznam vendorjev
+    const vendors = document.getElementById("vendors-list");
+    vendors.innerHTML = "";
+    translations[lang].vendorsList.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      vendors.appendChild(li);
+    });
+
+    // navigacija
+    document.querySelectorAll("nav a").forEach(link => {
+      link.textContent = link.getAttribute(`data-${lang}`);
+    });
+
+    localStorage.setItem("preferredLang", lang);
+  }
+
+  function showSection(id) {
+    document.querySelectorAll("main section").forEach(sec => {
+      sec.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+  }
+
+  window.onload = function() {
+    const savedLang = localStorage.getItem("preferredLang");
+    const userLang = navigator.language.startsWith("sl") ? "sl" : "en";
+    setLanguage(savedLang || userLang);
+    showSection("home");
+  }
+</script>
 
 </body>
 </html>
